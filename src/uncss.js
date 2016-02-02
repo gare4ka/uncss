@@ -154,8 +154,9 @@ function process(files, options, pages, stylesheets) {
     var cssStr = stylesheets.join(' \n'),
         parsed, report;
 
+    var cssOptions = options.cssOptions || {};
     try {
-        parsed = css.parse(cssStr);
+        parsed = css.parse(cssStr, cssOptions);
     } catch (err) {
         /* Try and construct a helpful error message */
         throw utility.parseErrorMessage(err, cssStr);
